@@ -1,0 +1,54 @@
+
+body {
+  background-color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p, label {
+  color: #67707a;
+}
+
+#canvas {
+  float: left;
+}
+
+#die {
+  margin: 10px 0;
+}
+
+.status-sidebar {
+  width: 150px;
+  margin: 0 10px;
+  float: left;
+}
+
+.label {
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+	padding: 0 10px;
+	font-weight: bold;
+}
+
+#game-status {
+	display: inline-block;
+}
+
+#players {
+  list-style: none;
+  padding: 0;
+}
+
+#players > li {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+#players .yellow + span { background-color: yellow; }
+#players .blue + span { background-color: blue; color: white; }
+#players .pink + span { background-color: pink; }
+#players .orange + span { background-color: orange; }

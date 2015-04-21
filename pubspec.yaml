@@ -1,0 +1,8 @@
+name: snakesnladders
+version: 0.0.1
+description: Snake and ladders game
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  boarding: any
+  browser: any

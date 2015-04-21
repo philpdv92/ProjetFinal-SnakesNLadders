@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snakes And Ladders</title>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <h1>Snakes And Ladders</h1>
+    <audio id="audio-victory"> 
+      <source src="audio/victory.ogg" type="audio/ogg"/>
+    </audio>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <div class="status-sidebar">
+      <div class="label">Select players and press start button. Then click on the board to roll the dice</div>
+      <ul id="players">
+        <li><input type="checkbox" class="yellow" /> <span>Yellow</span</li>
+        <li><input type="checkbox" class="blue" /> <span>Blue</span></li>
+        <li><input type="checkbox" class="pink" /> <span>Pink</span></li>
+        <li><input type="checkbox" class="orange" /> <span>Orange</span></li>
+      </ul>
+      <button id="btn-start-game">Start game</button>
+      <br />
+
+      <canvas id="die" width="48" height="48">
+        <img id="img-snake1" src="images/snake1.png" />
+        <img id="img-ladder1" src="images/ladder1.png" />
+      </canvas>
+
+      <div class="label" id="game-status">Game is stopped</div>
+    </div>
+
+    <script type="application/dart" src="main.dart"></script>
+  </body>
+</html>
