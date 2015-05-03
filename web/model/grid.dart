@@ -4,7 +4,9 @@ class Tile extends CellPiece {
   static const String tileColor = 'lightyellow';
   static const String tagColor = 'black';
   
-  Tile(TileGrid grid, Cell cell): super(grid, cell) {
+  Tile(TileGrid grid, Cell cell) {
+    this.grid = grid;
+    this.cell = cell;
     color.main = tileColor;
     isTagged = true;
     tag.size = 24;
@@ -30,7 +32,7 @@ class TileGrid extends Grid {
       column = columnCount - ((position - 1) % columnCount) - 1;
     }
 
-    return new Cell(column, row);
+    return new Cell.from(column, row);
   }
 
   /// Get numeric position (1-100) by Cell
@@ -51,7 +53,9 @@ class Player extends CellPiece {
   num _position, idx;
   String playerColor;
 
-  Player(TileGrid grid, Cell cell, String playerColor, num idx): super(grid, cell) {
+  Player(TileGrid grid, Cell cell, String playerColor, num idx) {
+    this.grid = grid;
+    this.cell = cell;
     this.playerColor = playerColor;
     color.main = playerColor;
     shape = PieceShape.CIRCLE;
@@ -74,7 +78,7 @@ class Player extends CellPiece {
   num get gamePosition => _position;
   void set gamePosition(num position) {
     _position = position;
-    cell = grid.getCellByGamePosition(position);
+    cell = (grid as TileGrid).getCellByGamePosition(position);
 
     updatePosition();
   }
@@ -83,7 +87,8 @@ class Player extends CellPiece {
 class Players extends CellPieces {
   num nextPlayerIdx = 0;
 
-  Players(TileGrid grid, List<String> playerColors) : super(grid) {
+  Players(TileGrid grid, List<String> playerColors) {
+    this.grid = grid;
     num idx = 0;
     for (var playerColor in playerColors) {
       add(new Player(grid, grid.getCellByGamePosition(1), playerColor, idx));
@@ -124,7 +129,7 @@ class Arrow extends Piece {
     Cell startCell = grid.getCellByGamePosition(startPosition);
     Cell stopCell = grid.getCellByGamePosition(stopPosition);
 
-    String arrowColor = isSnake ? snakeColor : ladderColor;
+    //String arrowColor = isSnake ? snakeColor : ladderColor;
 
     num x1 = grid.cellWidth * startCell.column + grid.cellWidth / 2;
     num y1 = grid.cellHeight * startCell.row + grid.cellHeight / 2;

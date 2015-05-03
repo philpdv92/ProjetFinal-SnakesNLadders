@@ -12,6 +12,7 @@ part 'view/board.dart';
 
 main() {
   var canvas = querySelector('#canvas');
-  var table = new Table(new Area(canvas.width, canvas.height), new Size(10, 10));
-  new Board(canvas, new TileGrid(table)).draw();
+  var table = new Table.from(new Size.from(10, 10),
+                             new Area.from(canvas.width, canvas.height));
+  new Board(canvas, new TileGrid(table));
 }

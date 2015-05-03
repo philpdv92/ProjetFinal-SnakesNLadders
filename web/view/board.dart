@@ -2,7 +2,6 @@ part of snakesnladders;
 
 class Board extends Surface {
   bool isGameRunning = false;
-  bool isGameOver = false;
   Players players;
   Player nextPlayer;
   Arrows arrows;
@@ -16,7 +15,8 @@ class Board extends Surface {
   ImageElement imgLadder = querySelector('#img-ladder1');
   ImageElement imgSnake = querySelector('#img-snake1');
 
-  Board(CanvasElement canvas, TileGrid tileGrid) : super(canvas, grid: tileGrid) {
+  Board(CanvasElement canvas, TileGrid tileGrid) {
+    this.canvas = canvas;
     grid = tileGrid;
 
     btnNewGameElement.onClick.listen((e) {
